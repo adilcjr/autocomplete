@@ -1,0 +1,25 @@
+web:
+  build: .
+  ports: ["3000:3000"]
+  tty: true
+  stdin_open: true
+  expose: ["3000"]
+  environment:
+    - RAILS_ENV=development
+    - PG_HOST=db
+    - PG_USERNAME=auto
+    - PG_PASSWORD=password
+  links:
+    - db
+  volumes:
+    - ".:/autocomplete"
+
+db:
+  image: postgres:9.6
+  environment:
+    POSTGRES_PASSWORD: password
+    POSTGRES_USER: auto
+  ports: ["5432:5432"]
+  expose: ["5432"]
+  volumes:
+    - "postgres:/var/lib/postgresql/data"
