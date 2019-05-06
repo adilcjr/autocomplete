@@ -1,0 +1,11 @@
+<h1>Search</h1>
+<div id="custom-templates">
+  <input class="tags" type="text" placeholder="Select User" data-autocomplete="tagsinput">
+</div>
+<script>
+$('.tags').tagsInput({
+    'autocomplete_url': '/autocomplete_users_name',
+    'delimiter': ',',   // Or a string with a single delimiter. Ex: ';'
+    'width': 'auto'
+});
+</script>
